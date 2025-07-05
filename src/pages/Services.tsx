@@ -1,6 +1,5 @@
 "use client"
 
-import { Calendar } from "../components/ui/calendar"
 import { motion } from "framer-motion"
 import { Users, Clock } from "lucide-react"
 import { services, availability } from "../constants/services"
