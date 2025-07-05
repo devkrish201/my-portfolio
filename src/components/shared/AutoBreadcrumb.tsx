@@ -38,7 +38,6 @@
 //   )
 // }
 
-
 import { Link, useLocation } from "react-router-dom"
 import { Home } from "lucide-react"
 
@@ -52,44 +51,53 @@ export default function AutoBreadcrumb() {
     const location = useLocation()
     const pathnames = location.pathname.split("/").filter((x) => x)
 
-    const title = pathnames.length === 0 ? "Home" : formatSegment(pathnames[pathnames.length - 1])
+    const title =
+        pathnames.length === 0 ? "Home" : formatSegment(pathnames[pathnames.length - 1])
 
     return (
-        <div className="bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 sm:p-8  shadow-sm mt-10 transition-colors">
-            <div className=" mx-auto">
-                {/* Title */}
-                <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">{title}</h1>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+            {/* ✅ This div now has gradient background */}
+            <div className="p-6 sm:p-8 shadow-sm transition-colors bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl">
+                <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+                    {/* Title */}
+                    <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">
+                        {title}
+                    </h1>
 
-                {/* Breadcrumb */}
-                <nav className="text-gray-600 dark:text-gray-400 text-sm flex items-center space-x-2">
-                    <Link to="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1">
-                        <Home className="w-4 h-4" />
-                        <span>Home</span>
-                    </Link>
+                    {/* Breadcrumb */}
+                    <nav className="text-gray-600 dark:text-gray-400 text-sm flex items-center space-x-2">
+                        <Link
+                            to="/"
+                            className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1"
+                        >
+                            <Home className="w-4 h-4" />
+                            <span>Home</span>
+                        </Link>
 
-                    {pathnames.map((segment, index) => {
-                        const to = `/${pathnames.slice(0, index + 1).join("/")}`
-                        const isLast = index === pathnames.length - 1
+                        {pathnames.map((segment, index) => {
+                            const to = `/${pathnames.slice(0, index + 1).join("/")}`
+                            const isLast = index === pathnames.length - 1
 
-                        return (
-                            <div key={index} className="flex items-center space-x-2">
-                                <span className="text-gray-400">›</span>
-                                {isLast ? (
-                                    <span className="text-gray-700 dark:text-gray-300 font-medium">
-                                        {formatSegment(segment)}
-                                    </span>
-                                ) : (
-                                    <Link
-                                        to={to}
-                                        className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                                    >
-                                        {formatSegment(segment)}
-                                    </Link>
-                                )}
-                            </div>
-                        )
-                    })}
-                </nav>
+                            return (
+                                <div key={index} className="flex items-center space-x-2">
+                                    <span className="text-gray-400">›</span>
+                                    {isLast ? (
+                                        <span className="text-gray-700 dark:text-gray-300 font-medium">
+                                            {formatSegment(segment)}
+                                        </span>
+                                    ) : (
+                                        <Link
+                                            to={to}
+                                            className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                                        >
+                                            {formatSegment(segment)}
+                                        </Link>
+                                    )}
+                                </div>
+                            )
+                        })}
+                    </nav>
+                </div>
             </div>
         </div>
     )

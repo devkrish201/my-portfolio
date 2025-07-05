@@ -14,10 +14,10 @@ export default function Projects() {
   const filteredProjects =
     activeCategory === "all" ? projects : projects.filter((project) => project.category === activeCategory)
 
-//   const featuredProjects = projects.filter((project) => project.featured)
+  //   const featuredProjects = projects.filter((project) => project.featured)
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-800">
+    <section id="projects" className="pb-20 bg-white dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -44,11 +44,10 @@ export default function Projects() {
             <motion.button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-3 rounded-full font-medium transition-all flex items-center gap-2 ${
-                activeCategory === category.id
+              className={`px-6 py-3 rounded-full font-medium transition-all flex items-center gap-2 ${activeCategory === category.id
                   ? "bg-blue-600 text-white shadow-lg"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
-              }`}
+                }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

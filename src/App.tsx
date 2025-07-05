@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import "react-day-picker/dist/style.css"
 import Navbar from "./components/layout/Navbar";
 import Hero from "./pages/Hero";
 import About from "./pages/About";

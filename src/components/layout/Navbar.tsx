@@ -6,7 +6,8 @@ import { Menu, X, Sun, Moon } from "lucide-react"
 import { useTheme } from "../../context/useTheme"
 import { useNavigate, useLocation } from "react-router-dom"
 import { navItems } from "../../constants/navItems"
-import DevKrishLogo from "../../pages/DevKrishLogo"
+import DevKrishLogo from "../shared/DevKrishLogo"
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -38,8 +39,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <motion.div
-            className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
-            whileHover={{ scale: 1.05 }}
+            // className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+            // whileHover={{ scale: 1.0 }}
           >
             <DevKrishLogo />
           </motion.div>

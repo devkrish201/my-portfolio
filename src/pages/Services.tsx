@@ -2,24 +2,15 @@
 
 import { Calendar } from "../components/ui/calendar"
 import { motion } from "framer-motion"
-import {  Users, Clock } from "lucide-react"
+import { Users, Clock } from "lucide-react"
 import { services, availability } from "../constants/services"
+import TechyDatePicker from "../components/shared/TechyDatePicker"
+import PageSectionHeader from "../components/shared/PageSectionHeader"
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="services" className="pb-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">What I Offer</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Comprehensive development services to bring your ideas to life.
-          </p>
-        </motion.div>
+        <PageSectionHeader page="services" />
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
@@ -70,13 +61,16 @@ export default function Services() {
           <h3 className="text-2xl font-bold mb-6">Let's Build Something Amazing Together</h3>
 
           <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="flex items-center justify-center gap-2">
-              <Calendar className="w-5 h-5" />
-              <div>
-                <div className="text-sm opacity-80">Next Available</div>
-                <div className="font-semibold">{availability.nextAvailable}</div>
-              </div>
+            <div className="flex flex-col items-center justify-center text-white">
+              <div className="text-sm opacity-80 mb-1">Next Available</div>
+              <div className="font-semibold mb-2">{availability.nextAvailable}</div>
+              {/* <div className="scale-90">
+                <Calendar mode="single" selected={new Date()} className="bg-white rounded-lg text-black" />
+              </div> */}
+
+              <TechyDatePicker />
             </div>
+
 
             <div className="flex items-center justify-center gap-2">
               <Clock className="w-5 h-5" />

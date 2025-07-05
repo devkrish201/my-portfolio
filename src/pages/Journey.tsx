@@ -73,7 +73,7 @@ export default function Journey() {
   }
 
   return (
-    <section id="journey" className="py-20 bg-white dark:bg-gray-800">
+    <section id="journey" className="pb-20 bg-white dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -137,9 +137,8 @@ export default function Journey() {
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-colors ${
-                      index === currentSlide ? "bg-blue-600" : "bg-gray-300 dark:bg-gray-600"
-                    }`}
+                    className={`w-3 h-3 rounded-full transition-colors ${index === currentSlide ? "bg-blue-600" : "bg-gray-300 dark:bg-gray-600"
+                      }`}
                   />
                 ))}
               </div>
